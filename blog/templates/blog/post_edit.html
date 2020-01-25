@@ -5,6 +5,6 @@
     <h5 style="color:red">A na razie tylko ja mogę się logować.</h5>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default" style="color:green"><b>Zapisz post</b></button>
     </form>
 {% endblock %}
