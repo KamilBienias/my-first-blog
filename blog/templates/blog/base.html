@@ -10,10 +10,8 @@
     </head>
     <body>
         <div class="page-header">
-            <!-- {% if user.is_authenticated %} --> <!-- żeby posty mogli dodawać tylko zalogowani -->
-                <a href="{% url 'post_new' %}" class="top-menu">Dodaj nowy post <span class="glyphicon glyphicon-plus"> </span></a>
-            <!-- {% endif %} -->
-            <h1><a href="/">Kamil's Blog</a></h1>
+            <a href="{% url 'post_new' %}" class="top-menu">Dodaj post <span class="glyphicon glyphicon-plus"> </span></a>
+            <h1><a href="/">Kamil Bienias - home page. <br> Blog made in Django.</a></h1>
         </div>
 
         <div class="content container">

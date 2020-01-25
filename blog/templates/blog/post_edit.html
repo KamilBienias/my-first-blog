@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h5 style="color:red">Nowy post.</h5>
     <h5 style="color:red">W tytule wpisz autora, ponieważ posty mogą dodawać również niezalogowani użytkownicy.</h5>
     <h5 style="color:red">A na razie tylko ja mogę się logować.</h5>
     <form method="POST" class="post-form">{% csrf_token %}
