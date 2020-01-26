@@ -2,7 +2,7 @@
 
 {% block content %}
     <h5 style="color:red">Posty mogą dodawać tylko zalogowani użytkownicy.</h5>
-    <h5 style="color:red">Na razie tylko administrator może się logować. Niezalogowani nie widzą na dole przysku "Zapisz post"</h5>
+    <h5 style="color:red">Na razie tylko administrator może się logować. Niezalogowani nie widzą na dole przycisku "Zapisz post"</h5>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         {% if user.is_authenticated %}
