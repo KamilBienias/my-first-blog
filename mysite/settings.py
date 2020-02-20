@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\dom\djangogirls\bookstore\templates'],  # można 'C:/Users/dom/djangogirls/bookstore/templates'
+        'DIRS': ['/bookstore/templates'],  # można 'C:/Users/dom/djangogirls/bookstore/templates' lub r'C:\Users\dom\djangogirls\bookstore\templates'
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
