@@ -1,0 +1,9 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+    <h2> Add new book or <a href="/bookstore">back to bookstore page</a></h2>
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
+        <input type="submit" value="Add a new book to database" />
+    </form>
+{% endblock %}

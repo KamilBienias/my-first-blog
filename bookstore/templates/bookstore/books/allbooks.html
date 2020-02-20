@@ -1,0 +1,19 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+    <h2> View all books or <a href="/bookstore">back to bookstore page</a></h2>
+
+    {% for book in books %}
+        <div>
+            <p>Book id: {{ book.id }}<p/>
+            <p>Title: {{ book.title }}<p/>
+            <p>Author's first name: {{ book.author_first_name }}<p/>
+            <p>Author's last name: {{ book.author_last_name }}<p/>
+            <p>Price: {{ book.price }}<p/>
+            <p>Description: {{ book.book_description }}<p/> <!-- linebreaks to nowa linia book.book_description|truncatewords:30|linebreaks-->
+            <p>Buyer id: {{ book.buyer_id}}<p/>
+
+            ********************************************************************************************************************************************************************************
+        </div>
+    {% endfor %}
+{% endblock %}

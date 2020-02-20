@@ -1,0 +1,21 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+    <div>
+		<ol>
+			<li><strong>Menu for customers</strong>
+				<ul>
+					<li><a href="customer/new">Add new customer</a></li>
+					<li><a href="customer/all">View all customers</a></li>
+					<li><a href="customer/order">Order a book for the customer</a></li>
+				</ul>
+			</li>
+			<li><strong>Books managing</strong>
+				<ul>
+					<li><a href="book/new">Add new book</a></li>
+					<li><a href="book/all">View all books</a></li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+{% endblock %}
