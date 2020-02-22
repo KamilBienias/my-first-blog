@@ -7,5 +7,17 @@
             {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
             <input type="submit" value="Order the book" />
         </form>
+        </br>
+        ********************************************************************************************************************************************************************************
+        {% for customer in customers %}
+        <div>
+            <p>Customer id: {{ customer.id }}<p/>
+            <p>Name: {{ customer.first_name }}<p/>
+            <p>Surname: {{ customer.last_name }}<p/>
+            <p>Date of birth: {{ customer.date_of_birth }}<p/>
+            <p>Email: {{ customer.email }}<p/>
+            ********************************************************************************************************************************************************************************
+        </div>
+        {% endfor %}
 
 {% endblock %}

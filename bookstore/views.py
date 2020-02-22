@@ -50,7 +50,6 @@ def all_customers(request):
     }
     return render(request, "bookstore/customers/allcustomers.html", context)
 
-# def order_book_for_customer(request, buyer_id):
 def show_books_to_order(request):
     books = Book.objects.order_by('id')
     context = {
@@ -67,7 +66,9 @@ def select_buyer(request, id):
         form = OrderBookForm()  # odświeża formularz, po zapisaniu będą puste pola
     else:
         form = OrderBookForm()  # na GET dostaję pusty formularz
+    customers = Customer.objects.order_by('id')
     context = {
         'form': form,
+        'customers': customers
     }
     return render(request, "bookstore/customers/selectbuyer.html", context)
