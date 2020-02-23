@@ -2,10 +2,18 @@
 
 {% block content %}
     <h2> Select buyer or <a href="/bookstore/customer/order">back to all books page</a></h2>
-
+        </br>
+        <p>You have chosen book:</p>
+        <div>
+            <p>Book id: {{ book.id }}<p/>
+            <p>Title: {{ book.title }}<p/>
+            <p>Author: {{ book.author_first_name }} {{ book.author_last_name }}<p/>
+            <p>Price: {{ book.price }}<p/>
+            <p>Buyer id: {{ book.buyer_id}}<p/>
+        </div>
         <form method="POST"> {% csrf_token %}
             {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
-            <input type="submit" value="Order the book" />
+            <input type="submit" value="Order the book with id {{ book.id }}"/>
         </form>
         </br>
         ********************************************************************************************************************************************************************************
