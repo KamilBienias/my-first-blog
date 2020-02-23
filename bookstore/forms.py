@@ -60,8 +60,18 @@ class BookForm(forms.ModelForm):
 
 
 class OrderBookForm(forms.ModelForm):
-    buyer_id = forms.DecimalField(label="Enter the customer id from the customer list below", widget=forms.TextInput(
-        attrs={"placeholder": "customer id"}))
+
+    customers = Customer.objects.all()
+    customers_ids = []
+    for customer in customers:
+        customers_ids.append(customer.id)
+
+    CUSTOMER_CHOICES = [tuple([x, x]) for x in customers_ids]
+
+    buyer_id = forms.DecimalField(label="Enter the customer id from the customer list below",
+                                  widget=forms.Select(choices=CUSTOMER_CHOICES)
+                                  # widget=forms.TextInput(attrs={"placeholder": "customer id"})
+                                  )
 
     class Meta:
         nazwa = forms.CharField(label='',
@@ -71,11 +81,11 @@ class OrderBookForm(forms.ModelForm):
             'buyer_id'
         ]
 
-    # walidacja pola buyer_id
-    def clean_buyer_id(self, *args, **kwargs):
-        buyer_id = self.cleaned_data.get("buyer_id")
-        try:
-            Customer.objects.get(id=buyer_id)
-            return buyer_id
-        except:
-            print("This customer does not exist (from print)")
+    # walidacja pola buyer_id (ale nie używam bo jest drop down list)
+    # def clean_buyer_id(self, *args, **kwargs):
+    #     buyer_id = self.cleaned_data.get("buyer_id")
+    #     try:
+    #         Customer.objects.get(id=buyer_id)
+    #         return buyer_id
+    #     except:
+    #         print("This customer does not exist (from print)")
