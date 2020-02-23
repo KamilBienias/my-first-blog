@@ -60,7 +60,7 @@ class BookForm(forms.ModelForm):
 
 
 class OrderBookForm(forms.ModelForm):
-    buyer_id = forms.DecimalField(label="Pass buyer id", widget=forms.TextInput(
+    buyer_id = forms.DecimalField(label="Enter the customer id from the customer list below", widget=forms.TextInput(
         attrs={"placeholder": "customer id"}))
 
     class Meta:
@@ -70,3 +70,12 @@ class OrderBookForm(forms.ModelForm):
         fields = [
             'buyer_id'
         ]
+
+    # walidacja pola buyer_id
+    def clean_buyer_id(self, *args, **kwargs):
+        buyer_id = self.cleaned_data.get("buyer_id")
+        try:
+            Customer.objects.get(id=buyer_id)
+            return buyer_id
+        except:
+            print("This customer does not exist (from print)")
