@@ -69,6 +69,16 @@ def select_buyer(request, id):
     customers = Customer.objects.order_by('id')
     context = {
         'form': form,
-        'customers': customers
+        'customers': customers,
+        'book': book
     }
     return render(request, "bookstore/customers/selectbuyer.html", context)
+
+def show_bought_books_by_selected_customer(request, id):
+    selected_customer = Customer.objects.get(id=id)
+    books = Book.objects.filter(buyer_id=id)
+    context = {
+        'selected_customer': selected_customer,
+        'books': books
+    }
+    return render(request, "bookstore/customers/boughtbooks.html", context)
