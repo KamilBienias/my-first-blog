@@ -66,11 +66,27 @@ class OrderBookForm(forms.ModelForm):
     for customer in customers:
         customers_ids.append(customer.id)
 
-    CUSTOMER_CHOICES = [tuple([x, x]) for x in customers_ids]
+    # customers_data = []
+    # for customer in customers:
+    #     customers_data.append((customer.id, customer.first_name))
+
+    # tak było, gdy tylko id się wyświetlało w drop down list
+    # CUSTOMER_CHOICES = [tuple([x, x]) for x in customers_ids]
+
+    # to jest lista krotek, która jest uogólniona w pętli poniżej
+    # CUSTOMER_CHOICES = [
+    #     (1, Customer.objects.filter(id=1)),
+    #     (2, Customer.objects.filter(id=2)),
+    #     (3, Customer.objects.filter(id=3)),
+    # ]
+
+    CUSTOMER_CHOICES = []
+    for i in customers_ids:
+        CUSTOMER_CHOICES.append((i, Customer.objects.filter(id=i)))
 
     buyer_id = forms.DecimalField(label="Enter the customer id from the customer list below",
                                   widget=forms.Select(choices=CUSTOMER_CHOICES)
-                                  # widget=forms.TextInput(attrs={"placeholder": "customer id"})
+                                  # widget=forms.TextInput(attrs={"placeholder": "customer id"}) # gdy było zwykłe pole
                                   )
 
     class Meta:
@@ -81,7 +97,7 @@ class OrderBookForm(forms.ModelForm):
             'buyer_id'
         ]
 
-    # walidacja pola buyer_id (ale nie używam bo jest drop down list)
+    # walidacja pola buyer_id (ale nie używam bo jest drop down list zamiast zwykłego TextInput)
     # def clean_buyer_id(self, *args, **kwargs):
     #     buyer_id = self.cleaned_data.get("buyer_id")
     #     try:
