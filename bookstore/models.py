@@ -8,6 +8,18 @@ class Customer(models.Model):
     date_of_birth = models.DateField()
     email = models.EmailField(max_length=30)
 
+    def __str__(self):
+        return "{} {} {} {}".format(self.id,
+                                 self.first_name,
+                                 self.last_name,
+                                 self.date_of_birth)
+
+    def __repr__(self):
+        return "{} {} {} {}".format(self.id,
+                                 self.first_name,
+                                 self.last_name,
+                                 self.date_of_birth)
+
 
 class Book(models.Model):
     title = models.CharField(max_length=120)
