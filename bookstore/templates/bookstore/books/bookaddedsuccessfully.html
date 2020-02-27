@@ -1,0 +1,16 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+    <h2> View new added book or <a href="/bookstore">back to bookstore page</a></h2>
+
+    <div>
+        <p>Book id: {{ added_book.id }}<p/>
+        <p>Book title: {{ added_book.title }}<p/>
+        <p>Author's first name: {{ added_book.author_first_name }}<p/>
+        <p>Author's last name: {{ added_book.author_last_name }}<p/>
+        <p>Price: {{ added_book.price }}<p/>
+        <p>Description: {{ added_book.book_description }}<p/> <!-- linebreaks to nowa linia book.book_description|truncatewords:30|linebreaks-->
+        <p>Buyer id: {{ added_book.buyer_id}}<p/>
+    </div>
+
+{% endblock %}

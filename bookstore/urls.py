@@ -8,6 +8,7 @@ urlpatterns = [
     path('customer/order/', views.show_books_to_order, name='show_books_to_order'),
     path('customer/order/<int:id>', views.select_buyer, name='select_buyer'), # Django spodziewa się liczby całkowitej i przekaże jej wartość do widoku jako zmienną id
     path('book/new/', views.create_book, name='create_book'),
+    path('book/new/added/', views.book_added_successfully, name='book_added_successfully'),
     path('book/all/', views.all_books, name='all_books'),
     path('', views.bookstore_home_page, name='bookstore_home_page'),
 ]
