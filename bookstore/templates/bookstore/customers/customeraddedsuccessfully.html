@@ -1,0 +1,14 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+    <h2> View new added customer or <a href="/bookstore">back to bookstore page</a></h2>
+
+    <div>
+            <p>Customer id: {{ added_customer.id }}<p/>
+            <p>Name: {{ added_customer.first_name }}<p/>
+            <p>Surname: {{ added_customer.last_name }}<p/>
+            <p>Date of birth: {{ added_customer.date_of_birth }}<p/>
+            <p>Email: {{ added_customer.email }}<p/>
+        </div>
+
+{% endblock %}

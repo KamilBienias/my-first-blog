@@ -15,11 +15,26 @@ def create_customer(request):
         request.POST or None)  # jeśli metoda POST to renderuj ten formularz a jeśli nie ma danych to renderuj pusty formularz
     if form.is_valid():
         form.save(commit=True)
-        form = CustomerForm()  # odświeża formularz, po zapisaniu będą puste pola
+        # form = CustomerForm()  # odświeża formularz, po zapisaniu będą puste pola. To już niepotrzebne, bo po wysłaniu przenosi na inną stronę
+        return redirect("/bookstore/customer/new/added")
     context = {
         'form': form
     }
     return render(request, "bookstore/customers/createcustomer.html", context)
+
+
+def customer_added_successfully(request):
+    customers = Customer.objects.all()
+    customers_ids = []
+    for customer in customers:
+        customers_ids.append(customer.id)
+
+    added_customer = Customer.objects.get(id=customers_ids[-1])
+
+    context = {
+        'added_customer': added_customer
+    }
+    return render(request, "bookstore/customers/customeraddedsuccessfully.html", context)
 
 
 def create_book(request):
@@ -27,7 +42,7 @@ def create_book(request):
         request.POST or None)  # jeśli metoda POST to renderuj ten formularz a jeśli nie ma danych to renderuj pusty formularz
     if form.is_valid():
         form.save(commit=True)
-        # form = BookForm()  # odświeża formularz, po zapisaniu będą puste pola. To już nie potrzebne, bo po wysłaniu przenosi na inną stronę
+        # form = BookForm()  # odświeża formularz, po zapisaniu będą puste pola. To już niepotrzebne, bo po wysłaniu przenosi na inną stronę
         return redirect("/bookstore/book/new/added")
     context = {
         'form': form
