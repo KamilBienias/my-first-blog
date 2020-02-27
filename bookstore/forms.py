@@ -82,7 +82,7 @@ class OrderBookForm(forms.ModelForm):
 
     CUSTOMER_CHOICES = []
     for i in customers_ids:
-        CUSTOMER_CHOICES.append((i, Customer.objects.filter(id=i)))
+        CUSTOMER_CHOICES.append((i, Customer.objects.get(id=i)))
 
     buyer_id = forms.DecimalField(label="Enter the customer id from the customer list below",
                                   widget=forms.Select(choices=CUSTOMER_CHOICES)
