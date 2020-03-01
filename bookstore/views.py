@@ -85,8 +85,15 @@ def all_customers(request):
 
 def show_books_to_order(request):
     books = Book.objects.order_by('id')
+
+    number_of_available_books = 0  # create variable
+    for book in books:
+        if book.buyer_id is None:  # if book has no buyer
+            number_of_available_books += 1  # increment number_of_available_books
+
     context = {
-        'books': books
+        'books': books,
+        'number_of_available_books': number_of_available_books,
     }
     return render(request, "bookstore/customers/showbookstoorder.html", context)
 
