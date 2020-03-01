@@ -1,7 +1,7 @@
 {% extends 'bookstore/base.html' %}
 
 {% block content %}
-    <h2> View all customers or <a href="/bookstore">back to bookstore page</a></h2>
+    <h2> View all {{ customers.count }} customers or <a href="/bookstore">back to bookstore page</a></h2>
 
     {% for customer in customers %}
         <div>
@@ -12,6 +12,10 @@
             <p>Email: {{ customer.email }}<p/>
             <p><a href={{customer.id}}>Show all books bought by customer with id {{ customer.id }} </a><p/>
             **************************************************************************************************************************************************
+        </div>
+    {% empty %}
+        <div>
+            <h3 style="color: red">No customers in the bookstore</h3>
         </div>
     {% endfor %}
 {% endblock %}

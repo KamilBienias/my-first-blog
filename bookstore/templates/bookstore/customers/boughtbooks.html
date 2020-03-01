@@ -1,7 +1,7 @@
 {% extends 'bookstore/base.html' %}
 
 {% block content %}
-    <h2> View all books of {{ selected_customer.first_name }} {{ selected_customer.last_name }} or <a href="/bookstore/customer/all">back to all customers</a></h2>
+    <h2> View all {{ books.count }} books of {{ selected_customer.first_name }} {{ selected_customer.last_name }} or <a href="/bookstore/customer/all">back to all customers</a></h2>
 
     {% for book in books %}
         <div>
@@ -17,7 +17,7 @@
         </div>
     {% empty %}
         <div>
-            <h3 style="color: red">There is no books of that customer</h3>
+            <h3 style="color: red">There are no books for this customer</h3>
         </div>
     {% endfor %}
 {% endblock %}

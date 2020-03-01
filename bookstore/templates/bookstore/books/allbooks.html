@@ -1,7 +1,7 @@
 {% extends 'bookstore/base.html' %}
 
 {% block content %}
-    <h2> View all books or <a href="/bookstore">back to bookstore page</a></h2>
+    <h2> View all {{ books.count }} books or <a href="/bookstore">back to bookstore page</a></h2>
 
     {% for book in books %}
         <div>
@@ -14,6 +14,10 @@
             <p>Buyer id: {{ book.buyer_id}}<p/>
 
             **************************************************************************************************************************************************
+        </div>
+    {% empty %}
+        <div>
+            <h3 style="color: red">There are no books in the bookstore</h3>
         </div>
     {% endfor %}
 {% endblock %}
