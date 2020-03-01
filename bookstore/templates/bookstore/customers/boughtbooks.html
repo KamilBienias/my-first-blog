@@ -1,7 +1,7 @@
 {% extends 'bookstore/base.html' %}
 
 {% block content %}
-    <h2> View all {{ books.count }} books of {{ selected_customer.first_name }} {{ selected_customer.last_name }} or <a href="/bookstore/customer/all">back to all customers</a></h2>
+    <h2> View all {{ books.count }} book{{ books.count|pluralize }} of {{ selected_customer.first_name }} {{ selected_customer.last_name }} or <a href="/bookstore/customer/all">back to all customers</a></h2>
 
     {% for book in books %}
         <div>

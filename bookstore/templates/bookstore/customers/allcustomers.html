@@ -1,7 +1,7 @@
 {% extends 'bookstore/base.html' %}
 
 {% block content %}
-    <h2> View all {{ customers.count }} customers or <a href="/bookstore">back to bookstore page</a></h2>
+    <h2> View all {{ customers.count }} customer{{ customers.count|pluralize }} or <a href="/bookstore">back to bookstore page</a></h2>
 
     {% for customer in customers %}
         <div>
