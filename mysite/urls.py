@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),  # blog from djagogirls
     path('bookstore/', include('bookstore.urls')),  # my bookstore
+    path('polls/', include('polls.urls')),  # polls from docs.djangoproject.com
 ]
