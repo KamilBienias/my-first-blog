@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',  # it has to be first
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +57,10 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/bookstore/templates'],  # można 'C:/Users/dom/djangogirls/bookstore/templates' lub r'C:\Users\dom\djangogirls\bookstore\templates'
+        'DIRS': [  # było '/bookstore/templates' ale można 'C:/Users/dom/djangogirls/bookstore/templates' lub r'C:\Users\dom\djangogirls\bookstore\templates'
+            '/bookstore/templates',
+            '/polls/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
