@@ -1,0 +1,30 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div style="float:right">
+<img src="{% static 'polls/images/background.png' %}" alt="My image">
+</div>
+
+<h2>{{ question.question_text }}</h2>
+
+{% if error_message %}
+    <p><strong>{{ error_message|safe }}</strong></p>
+{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+    <!--  question.choice_set.all jest interpretowane jako kod Pythona z nawiasami question.choice_set.all(),
+ który zwraca iterator obiektów Choice. Bez nawiasów używa się w tagach np. for -->
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <!-- for="choice{{ forloop.counter }}" mówi, którego inputu dotyczy ten label, biorąc jego id -->
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+    </br></br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
+<h2><a href="{% url 'polls:index' %}">Back to all polls</a></h2>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div style="float:right">
+<img src="{% static 'polls/images/background.png' %}" alt="My image">
+</div>
+
+<h2>Results for question:</h2>
+<h2>{{ question.question_text }}</h2>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} <font color="yellow">has {{ choice.votes }} vote{{ choice.votes|pluralize }} </font></li>
+{% endfor %}
+</ul>
+
+<h2><a href="{% url 'polls:detail' question.id %}">Vote again?</a></h2>
+<h2><a href="{% url 'polls:index' %}">Back to all polls</a></h2>
+
+{% endblock %}
