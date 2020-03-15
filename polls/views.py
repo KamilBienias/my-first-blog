@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
             Return the last five published questions (not including those set to be
             published in the future). __lte oznacza lower than equal
             """
-        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')[:5]
 
         # """Return the last five published questions."""
         # return Question.objects.order_by('-pub_date')[:5]
