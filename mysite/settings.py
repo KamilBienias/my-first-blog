@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'wholesale.apps.WholesaleConfig',  # my wholesale
     'polls.apps.PollsConfig',  # it has to be first
     'django.contrib.admin',
     'django.contrib.auth',
