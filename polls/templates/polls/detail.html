@@ -21,10 +21,12 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <!-- for="choice{{ forloop.counter }}" mówi, którego inputu dotyczy ten label, biorąc jego id -->
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
-    </br></br>
+    </br></br></br>
 {% endfor %}
+    </br>
 <input type="submit" value="Vote">
 </form>
+</br>
 <h2><a href="{% url 'polls:index' %}">Back to all polls</a></h2>
 
 {% endblock %}

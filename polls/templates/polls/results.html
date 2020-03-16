@@ -15,8 +15,9 @@
     <li><font color="yellow">Answer </font> "{{ choice.choice_text }}" <font color="yellow">has {{ choice.votes }} vote{{ choice.votes|pluralize }} </font></li>
 {% endfor %}
 </ul>
-
+</br>
 <h2><a href="{% url 'polls:detail' question.id %}">Vote again?</a></h2>
+</br>
 <h2><a href="{% url 'polls:index' %}">Back to all polls</a></h2>
 
 {% endblock %}
