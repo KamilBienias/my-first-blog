@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'wholesale.apps.WholesaleConfig',  # my wholesale
+    # 'wholesale.apps.WholesaleConfig',  # my wholesale
     'polls.apps.PollsConfig',  # it has to be first
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'bookstore',
+    'search',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ TEMPLATES = [
         'DIRS': [  # było '/bookstore/templates' ale można 'C:/Users/dom/djangogirls/bookstore/templates' lub r'C:\Users\dom\djangogirls\bookstore\templates'
             '/bookstore/templates',
             '/polls/templates',
+            '/search/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

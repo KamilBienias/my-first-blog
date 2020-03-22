@@ -1,0 +1,11 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+    <h2> Look for the chosen phrase on the website (included in all html tags)</h2>
+    <br>
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
+        <br>
+        <input type="submit" value="Search" />
+    </form>
+{% endblock %}
