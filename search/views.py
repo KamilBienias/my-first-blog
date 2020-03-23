@@ -22,25 +22,42 @@ def search_home_page(request):
 
 def result(request):
 
-    searches = Search.objects.all()
-    searches_ids = []
-    for search in searches:
-        searches_ids.append(search.id)
+    # searches = Search.objects.all()
+    # searches_ids = []
+    # for search in searches:
+    #     searches_ids.append(search.id)
+    #
+    # added_search = Search.objects.get(id=searches_ids[-1])
+    #
+    # with urlopen(added_search.website_address) as web_response:
+    #     source = web_response.read()
+    #
+    # source_as_string = str(source)
+    #
+    # result_of_searching = re.findall(added_search.passed_expression, source_as_string)
+    #
+    # how_many_times = len(result_of_searching)
+    #
+    # context = {
+    #     'added_search': added_search,
+    #     'how_many_times': how_many_times
+    # }
+    passed_url = input("Pass url: ")
 
-    added_search = Search.objects.get(id=searches_ids[-1])
-
-    with urlopen(added_search.website_address) as web_response:
-        source = web_response.read()
+    with urlopen(passed_url) as response:
+        source = response.read()
 
     source_as_string = str(source)
-
-    result_of_searching = re.findall(added_search.passed_expression, source_as_string)
-
+    # print("Shows whole site as string")
+    # print(source_as_string)
+    passed_expression = input("Pass expression you are looking for: ")
+    result_of_searching = re.findall(passed_expression, source_as_string)
     how_many_times = len(result_of_searching)
-
     context = {
-        'added_search': added_search,
+        'passed_url': passed_url,
+        'passed_expression': passed_expression,
         'how_many_times': how_many_times
     }
+
     return render(request, "search/result.html", context)
 
