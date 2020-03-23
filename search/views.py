@@ -7,7 +7,7 @@ from search.forms import SearchForm
 from urllib.request import urlopen
 import re
 
-@requires_csrf_token
+
 def search_home_page(request):
     form = SearchForm(
         request.POST or None)  # jeśli metoda POST to renderuj ten formularz a jeśli nie ma danych to renderuj pusty formularz
