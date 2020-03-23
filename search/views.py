@@ -42,7 +42,10 @@ def result(request):
     #     'added_search': added_search,
     #     'how_many_times': how_many_times
     # }
-    passed_url = input("Pass url: ")
+
+
+    # passed_url = input("Pass url: ")
+    passed_url = "http://java4me.prv.pl"
 
     with urlopen(passed_url) as response:
         source = response.read()
@@ -50,7 +53,8 @@ def result(request):
     source_as_string = str(source)
     # print("Shows whole site as string")
     # print(source_as_string)
-    passed_expression = input("Pass expression you are looking for: ")
+    # passed_expression = input("Pass expression you are looking for: ")
+    passed_expression = "Kam"
     result_of_searching = re.findall(passed_expression, source_as_string)
     how_many_times = len(result_of_searching)
     context = {
