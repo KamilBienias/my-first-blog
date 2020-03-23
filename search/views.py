@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt, requires_csrf_token
 
 from search.models import Search
 from search.forms import SearchForm
@@ -20,7 +19,7 @@ def search_home_page(request):
     }
     return render(request, "search/search.html", context)
 
-@requires_csrf_token
+
 def result(request):
 
     searches = Search.objects.all()
@@ -30,8 +29,8 @@ def result(request):
 
     added_search = Search.objects.get(id=searches_ids[-1])
 
-    with urlopen(added_search.website_address) as response:
-        source = response.read()
+    with urlopen(added_search.website_address) as web_response:
+        source = web_response.read()
 
     source_as_string = str(source)
 
