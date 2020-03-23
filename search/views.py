@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+
 from search.models import Search
 from search.forms import SearchForm
 
 from urllib.request import urlopen
 import re
 
-
+@csrf_exempt
 def search_home_page(request):
     form = SearchForm(
         request.POST or None)  # jeśli metoda POST to renderuj ten formularz a jeśli nie ma danych to renderuj pusty formularz
@@ -18,7 +20,7 @@ def search_home_page(request):
     }
     return render(request, "search/search.html", context)
 
-
+@csrf_exempt
 def result(request):
 
     searches = Search.objects.all()
