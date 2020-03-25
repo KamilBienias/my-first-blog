@@ -22,5 +22,6 @@ urlpatterns = [
     path('bookstore/', include('bookstore.urls')),  # my bookstore
     path('polls/', include('polls.urls')),  # polls from docs.djangoproject.com
     # path('wholesale/', include('wholesale.urls')),  # my wholesale
-    path('search/', include('search.urls')),  # my search
+    # path('search/', include('search.urls')),  # my search
+    path('findword/', include('findword.urls')),  # my findword
 ]

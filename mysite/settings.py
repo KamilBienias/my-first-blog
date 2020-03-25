@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'bookstore',
-    'search',
+    # 'search',
+    'findword',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,8 @@ TEMPLATES = [
         'DIRS': [  # było '/bookstore/templates' ale można 'C:/Users/dom/djangogirls/bookstore/templates' lub r'C:\Users\dom\djangogirls\bookstore\templates'
             '/bookstore/templates',
             '/polls/templates',
-            '/search/templates',
+            # '/search/templates',
+            '/findword/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

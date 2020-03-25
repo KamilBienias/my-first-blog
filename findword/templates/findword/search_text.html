@@ -1,0 +1,10 @@
+{% extends 'findword/base.html' %}
+
+{% block content %}
+    <h2> Look for the chosen phrase in the text</h2>
+    <br>
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
+        <input type="submit" value="Search" />
+    </form>
+{% endblock %}

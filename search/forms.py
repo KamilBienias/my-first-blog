@@ -1,5 +1,6 @@
 from django import forms
 from search.models import Search
+from search.models import Searchtext
 
 
 class SearchForm(forms.ModelForm):
@@ -15,4 +16,23 @@ class SearchForm(forms.ModelForm):
         fields = [
             'website_address',
             'passed_expression',
+        ]
+
+
+class SearchtextForm(forms.ModelForm):
+    passed_text = forms.CharField(label="Pass the text to search", widget=forms.Textarea(
+        attrs={"placeholder": "Some kind of text",
+               "rows": 5,
+               "cols": 70
+               }))
+    passed_phrase = forms.CharField(label="Searched phrase", widget=forms.TextInput(
+        attrs={"placeholder": "Some word"}))
+
+    class Meta:
+        nazwa = forms.CharField(label='',
+            widget=forms.TextInput(attrs={"placeholder": "Wpisz nazwę"}))  # etykieta Nazwa się nie pojawi bo label=''
+        model = Searchtext
+        fields = [
+            'passed_text',
+            'passed_phrase',
         ]

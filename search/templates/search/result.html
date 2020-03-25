@@ -1,17 +1,19 @@
 {% extends 'search/base.html' %}
 
 {% block content %}
-    <h2> View search results or <a href="/search">back to search page</a></h2>
+    <h2> View results or <a href="{% url 'search_home_page_url' %}">back to search page</a></h2>
     <br>
     <div>
-<!--            <p>Search id:<font color="yellow"> {{ added_search.id }}</font><p/>-->
-<!--            <p>Website:<font color="yellow"> {{ added_search.website_address|safe }}</font><p/>-->
-<!--            <p>Phrase:<font color="yellow"> {{ added_search.passed_expression }}</font><p/>-->
-<!--            <p>How many times it occurs:<font color="yellow"> {{ how_many_times }}</font><p/>-->
-
-            <p>Website:<font color="yellow"> {{ passed_url }}</font><p/>
-            <p>Phrase:<font color="yellow"> {{ passed_expression }}</font><p/>
+            <!-- poniżej wersja dla wpisywania adresów www z formularza -->
+            <p>Search id:<font color="yellow"> {{ added_search.id }}</font><p/>
+            <p>Website:<font color="yellow"> {{ added_search.website_address|safe }}</font><p/>
+            <p>Phrase:<font color="yellow"> {{ added_search.passed_expression }}</font><p/>
             <p>How many times it occurs:<font color="yellow"> {{ how_many_times }}</font><p/>
-        </div>
+
+            <!-- poniżej wersja dla wpisywania adresów bez użycia formularza -->
+<!--            <p>Website:<font color="yellow"> {{ passed_url }}</font><p/>-->
+<!--            <p>Phrase:<font color="yellow"> {{ passed_expression }}</font><p/>-->
+<!--            <p>How many times it occurs:<font color="yellow"> {{ how_many_times }}</font><p/>-->
+    </div>
 
 {% endblock %}

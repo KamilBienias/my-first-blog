@@ -1,0 +1,13 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+    <h2> View results or <a href="{% url 'search_home_page_text' %}">back to search page</a></h2>
+    <br>
+    <div>
+        <p>Search id:<font color="yellow"> {{ added_search.id }}</font><p/>
+        <p>The text to search:<font color="yellow"> {{ added_search.passed_text }}</font><p/>
+        <p>Searched phrase:<font color="yellow"> {{ added_search.passed_phrase }}</font><p/>
+        <p>How many times it occurs:<font color="yellow"> {{ how_many_times }}</font><p/>
+    </div>
+
+{% endblock %}
