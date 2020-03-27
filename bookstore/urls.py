@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = "bookstore"
+
 urlpatterns = [
     path('customer/new/', views.create_customer, name='create_customer'),
     path('customer/new/added', views.customer_added_successfully, name='customer_added_successfully'),

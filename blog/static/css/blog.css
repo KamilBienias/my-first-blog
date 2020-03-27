@@ -1,6 +1,7 @@
 h1 a, h2 a {
-    color: #C25100;
-    font-family: 'Lobster';
+    /* color: #C25100; pomarańczowy */
+    color: white;
+     font-family: 'Lobster'; /* usunąłem link href= z base.html */
 }
 
 body {
@@ -8,7 +9,8 @@ body {
 }
 
 .page-header {
-    background-color: #C25100;
+    /* background-color: #C25100; pomarańczowy */
+    background-color: #303030;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }

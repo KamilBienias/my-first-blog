@@ -6,8 +6,9 @@
 <div style="float:right">
 <img src="{% static 'polls/images/background.png' %}" alt="My image">
 </div>
-
+<a href="/">Back to list of projects</a>
 {% if latest_question_list %}
+
     <h2>List of polls:</h2>
     <ul>
     {% for question in latest_question_list %}

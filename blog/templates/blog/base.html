@@ -1,17 +1,26 @@
-{% load static %}
 <html>
+{% load static %}
     <head>
-        <title>Kamil's blog</title>
+        <title>Kamil's site</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<!--        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">-->
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    </head>
+
     <body>
-        <div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu">Dodaj post <span class="glyphicon glyphicon-plus"> </span></a>
-            <h1><a href="/">Kamil Bienias - home page. <br> Blog made in Django.</a></h1>
+        <div class="page-header" style="background-color: #303030;">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu">Add post <span class="glyphicon glyphicon-plus"> </span></a>
+            {% endif %}
+            <h1><a style="cursor: pointer;" href="/" >Kamil Bienias - home page.</a></h1>
+            <p style="color:white; font-size: 18px;">Projects: &nbsp&nbsp</p>
+            <div>
+            <a href="{% url 'polls:index' %}" id="polls" onmouseover="polls()" onmouseout="polls_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp polls</a><br>
+            <a href="{% url 'bookstore:bookstore_home_page' %}" id="bookstore" onmouseover="bookstore()" onmouseout="bookstore_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp bookstore</a><br>
+            <a href="{% url 'findword:search_text' %}" id="searching" onmouseover="searching()" onmouseout="searching_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp searching</a><br>
+            </div>
+            <div style="clear:both"></div>
         </div>
 
         <div class="content container">
@@ -23,4 +32,35 @@
             </div>
         </div>
     </body>
+    <script>
+            function polls()
+            {
+               document.getElementById('polls').innerHTML="__polls__(self)";
+            }
+
+            function polls_normal()
+            {
+               document.getElementById('polls').innerHTML="&nbsp&nbsp&nbsp polls";
+            }
+
+            function bookstore()
+            {
+               document.getElementById('bookstore').innerHTML="__bookstore__(self)";
+            }
+
+            function bookstore_normal()
+            {
+               document.getElementById('bookstore').innerHTML="&nbsp&nbsp&nbsp bookstore";
+            }
+
+            function searching()
+            {
+               document.getElementById('searching').innerHTML="__searching__(self)";
+            }
+
+            function searching_normal()
+            {
+               document.getElementById('searching').innerHTML="&nbsp&nbsp&nbsp searching";
+            }
+    </script>
 </html>
