@@ -4,6 +4,6 @@ from . import views
 app_name = "findword"
 
 urlpatterns = [
-    path('pass_text', views.search_text, name='search_text'),
-    path('result_text', views.result_in_text, name='result_in_text'),
+    path('', views.search_text_method, name='search_text_name'),
+    path('result_text/', views.result_in_text_method, name='result_in_text_name'),
 ]
