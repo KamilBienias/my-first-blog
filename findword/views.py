@@ -3,7 +3,7 @@ from .models import Findword
 from .forms import FindwordForm
 import re
 
-def search_text(request):
+def search_text_method(request):
     form = FindwordForm(
         request.POST or None)  # jeśli metoda POST to renderuj ten formularz a jeśli nie ma danych to renderuj pusty formularz
     if form.is_valid():
@@ -16,7 +16,7 @@ def search_text(request):
     return render(request, "findword/search_text.html", context)
 
 
-def result_in_text(request):
+def result_in_text_method(request):
     searches = Findword.objects.all()
     searches_ids = []
     for search in searches:
