@@ -9,7 +9,7 @@ class CustomerForm(forms.ModelForm):
     last_name = forms.CharField(label="Customer's last name", widget=forms.TextInput(
         attrs={"placeholder": "customer's last name"}))
     date_of_birth = forms.DateField(widget=forms.TextInput(
-        attrs={"placeholder": "DD.MM.YYYY"}))
+        attrs={"placeholder": "YYYY-MM-DD"}))
     email = forms.EmailField(widget=forms.TextInput(
         attrs={"placeholder": "john@gmail.com"}))
 
