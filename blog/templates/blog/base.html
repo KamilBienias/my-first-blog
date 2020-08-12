@@ -19,6 +19,7 @@
             <a href="{% url 'polls:index' %}" id="polls" onmouseover="polls()" onmouseout="polls_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp polls</a><br>
             <a href="{% url 'bookstore:bookstore_home_page' %}" id="bookstore" onmouseover="bookstore()" onmouseout="bookstore_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp bookstore</a><br>
             <a href="findword/" id="searching" onmouseover="searching()" onmouseout="searching_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp searching</a><br>
+            <a href="todo/" id="todolist" onmouseover="todolist()" onmouseout="todolist_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp ToDoList</a><br>
             </div>
             <div style="clear:both"></div>
         </div>
@@ -61,6 +62,16 @@
             function searching_normal()
             {
                document.getElementById('searching').innerHTML="&nbsp&nbsp&nbsp searching";
+            }
+
+            function todolist()
+            {
+               document.getElementById('todolist').innerHTML="__ToDoList__(self)";
+            }
+
+            function todolist_normal()
+            {
+               document.getElementById('todolist').innerHTML="&nbsp&nbsp&nbsp ToDoList";
             }
     </script>
 </html>
