@@ -24,4 +24,6 @@ urlpatterns = [
     # path('wholesale/', include('wholesale.urls')),  # my wholesale
     # path('search/', include('search.urls')),  # my search
     path('findword/', include('findword.urls')),  # my findword
+    # path('todolist/', include('todolist.urls')),  # my todolist
+    path('todo/', include('todo.urls')),  # my
 ]
