@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'bookstore',
     # 'search',
     'findword',
+    # 'todolist',
+    'todo',
 ]
 
 MIDDLEWARE = [
