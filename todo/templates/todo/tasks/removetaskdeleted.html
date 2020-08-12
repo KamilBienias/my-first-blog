@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> View deleted task or <a href="/todo">back to ToDo</a></h2>
+
+    <div>
+        <p>Task id: {{ its_id }}<p/>
+        <p>Summary: {{ task_non_grata.summary }}<p/>
+        <p>Description: {{ task_non_grata.description }}<p/>
+        <p>Importance: {{ task_non_grata.importance }}<p/>
+<!--        <p>Executor of that task: {{ task_non_grata.person.id }}<p/>-->
+    </div>
+{% endblock %}

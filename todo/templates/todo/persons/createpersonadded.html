@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> View new added executor or <a href="/todo">back to ToDo</a></h2>
+
+    <div>
+        <p>Person id: {{ added_person.id }}<p/>
+        <p>First name: {{ added_person.first_name }}<p/>
+        <p>Last name: {{ added_person.last_name }}<p/>
+        <p>Status: {{ added_person.status }}<p/>
+    </div>
+
+{% endblock %}

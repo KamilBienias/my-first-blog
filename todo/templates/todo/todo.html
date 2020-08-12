@@ -1,0 +1,35 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <div>
+		</br>
+		<a href="/">Back to list of projects</a>
+		</br>
+		</br>
+		<ol>
+			<li><strong>Menu for executors</strong>
+				<ul>
+					</br>
+					<li><a href="person/new/">Add new executor</a></li>
+					</br>
+					<li><a href="persons/">View all executors</a></li>
+					</br>
+					<li><a href="person/remove">Remove executor</a></li>
+					</br>
+					<li><a href="person/assign">Assign a task for the executor</a></li>
+				</ul>
+			</li>
+			</br>
+			<li><strong>Tasks managing</strong>
+				<ul>
+					</br>
+					<li><a href="task/new/">Add new task</a></li>
+					</br>
+					<li><a href="tasks/">View all tasks</a></li>
+					</br>
+					<li><a href="task/remove">Remove task</a></li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+{% endblock %}

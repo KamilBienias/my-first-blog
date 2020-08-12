@@ -1,0 +1,11 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> View tasks of executor with id ={{ chosen_person.id }} <a href="/todo/persons">back to executors</a></h2>
+
+    <div>
+        {% for task in tasks_list_of_chosen_person %}
+        <p>{{ task }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> Assigned task id={{ chosen_task.id }} to person id ={{ chosen_task.person.id }} <a href="/todo">back to ToDo</a></h2>
+
+    <div>
+        <p>Task id: {{ chosen_task.id }}<p/>
+        <p>Summary: {{ chosen_task.summary }}<p/>
+        <p>Description: {{ chosen_task.description }}<p/>
+        <p>Importance: {{ chosen_task.importance }}<p/>
+        <p style="color:yellow;">has executor:</p>
+        <p>Person id: {{ chosen_task.person.id }}</p>
+        <p>First name: {{ chosen_task.person.first_name }}</p>
+        <p>Last name: {{ chosen_task.person.last_name }}</p>
+        <p>Status: {{ chosen_task.person.status }}</p>
+    </div>
+{% endblock %}

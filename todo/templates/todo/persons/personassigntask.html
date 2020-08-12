@@ -1,0 +1,20 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> Select task to assign to executor {{ person_id }} or <a href="/todo">back to ToDo</a></h2>
+
+    {% for task in all_tasks_list %}
+        <div>
+            <p>Task id: <a href="{{person_id}}/{{task.id}}">{{ task.id }}</a><p/>
+            <p>Summary: {{ task.summary }}<p/>
+            <p>Description: {{ task.description }}<p/>
+            <p>Importance: {{ task.importance }}<p/>
+
+            **************************************************************************************************************************************************
+        </div>
+    {% empty %}
+        <div>
+            <h3 style="color: red">There are no tasks in todolist</h3>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h2> View all {{ all_tasks_list.count }} task{{ all_tasks_list.count|pluralize }} or <a href="/todo">back to ToDo</a></h2>
+
+    {% for task in all_tasks_list %}
+        <div>
+            <p>Task id: {{ task.id }}<p/>
+            <p>Summary: {{ task.summary }}<p/>
+            <p>Description: {{ task.description }}<p/>
+            <p>Importance (1-9): {{ task.importance }}<p/>
+            <p>
+                {% if  task.person %}
+                    <p style="color:yellow;"> Executor: {{ task.person }}</p>
+                {% else %}
+                    <p style="color:red;"> Executor: {{ task.person }}</p>
+                {% endif %}
+            </p>
+
+            **************************************************************************************************************************************************
+        </div>
+    {% empty %}
+        <div>
+            <h3 style="color: red">There are no tasks in todolist</h3>
+        </div>
+    {% endfor %}
+{% endblock %}
