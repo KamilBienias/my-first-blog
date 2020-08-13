@@ -3,7 +3,7 @@
 {% block content %}
     <h2> Select task to assign to executor {{ person_id }} or <a href="/todo">back to ToDo</a></h2>
 
-    {% for task in all_tasks_list %}
+    {% for task in tasks_unassigned_to_any_person_list %}
         <div>
             <p>Task id: <a href="{{person_id}}/{{task.id}}">{{ task.id }}</a><p/>
             <p>Summary: {{ task.summary }}<p/>
