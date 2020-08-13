@@ -11,6 +11,7 @@ def todo_home_page_method(request):
 
 # persons/
 def all_persons_method(request):
+    """ shows list of all persons """
     all_persons_list = Person.objects.order_by('id')
     context = {
         'all_persons_list': all_persons_list
@@ -20,17 +21,19 @@ def all_persons_method(request):
 
 # persons/<int:id>/tasks/
 def tasks_of_chosen_person_method(request, id):
-    chosen_person = Person.objects.get(id=id)
+    """ From list of all persons you can select tasks of chosen person.
+     Do that by clicking link: View all tasks of executor with id=(id given in url)"""
+    chosen_person = Person.objects.get(id=id)  # get person which id is as given in url
     all_tasks_list = Task.objects.all()
-    tasks_assigned_to_some_person = []
+    tasks_assigned_to_some_person = []  # there will be tasks assigned to any person
     for task in all_tasks_list:
-        if task.person is not None:
-            tasks_assigned_to_some_person.append(task)
+        if task.person is not None:  # if task is assigned to any person
+            tasks_assigned_to_some_person.append(task)  # then add that task to tasks_assigned_to_some_person list
 
-    tasks_list_of_chosen_person = []
-    for task in tasks_assigned_to_some_person:
-        if task.person.id == chosen_person.id:
-            tasks_list_of_chosen_person.append(task)
+    tasks_list_of_chosen_person = []  # there will be tasks assigned to chosen person
+    for task in tasks_assigned_to_some_person:  # iterates tasks from tasks which are assign to any person (to avoid null pointer in line below)
+        if task.person.id == chosen_person.id:  # if task has assign the same person which is chosen_person
+            tasks_list_of_chosen_person.append(task)  # add that task to tasks of chosen person
     context = {
         'chosen_person': chosen_person,
         'tasks_list_of_chosen_person': tasks_list_of_chosen_person
@@ -88,6 +91,7 @@ def remove_person_deleted_method(request, id):
 
 # person/assign/
 def person_assign_method(request):
+    """ Shows list of all persons but only available persons can assing new tasks """
     all_persons_list = Person.objects.order_by('id')
     context = {
         'all_persons_list': all_persons_list
@@ -97,9 +101,14 @@ def person_assign_method(request):
 
 # person/assign/<int:person_id>
 def person_assign_task_method(request, person_id):
+    """ For chosen executor (with person_id) shows list of tasks which have no executors """
     all_tasks_list = Task.objects.order_by('id')
+    tasks_unassigned_to_any_person_list = []
+    for task in all_tasks_list:
+        if task.person is None:
+            tasks_unassigned_to_any_person_list.append(task)
     context = {
-        'all_tasks_list': all_tasks_list,
+        'tasks_unassigned_to_any_person_list': tasks_unassigned_to_any_person_list,
         'person_id': person_id
     }
     return render(request, "todo/persons/personassigntask.html", context)
