@@ -5,7 +5,11 @@
 
     {% for person in all_persons_list %}
         <div>
-            <p>Person id: <a href="{{person.id}}">{{ person.id }}</a><p/>
+            {% if person.status == "available" %}
+                <p>Person id: <a href="{{person.id}}">{{ person.id }}</a><p/>
+            {% elif person.status == "overloaded" %}
+                <p style="color: red;">Person id: {{ person.id }} (overloaded)<p/>
+            {% endif %}
             <p>First name: {{ person.first_name }}<p/>
             <p>Last name: {{ person.last_name }}<p/>
             <p>Status: {{ person.status }}<p/>
