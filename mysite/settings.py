@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'findword',
     # 'todolist',
     'todo',
+    'iss',
 ]
 
 MIDDLEWARE = [

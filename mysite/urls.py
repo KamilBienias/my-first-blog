@@ -26,4 +26,5 @@ urlpatterns = [
     path('findword/', include('findword.urls')),  # my findword
     # path('todolist/', include('todolist.urls')),  # my todolist
     path('todo/', include('todo.urls')),  # my
+    path('iss/', include('iss.urls')),  # my iss
 ]
