@@ -1,0 +1,33 @@
+{% extends 'iss/base.html' %}
+
+{% block content %}
+{% load static %}
+    <div>
+		<img src="{% static 'iss/images/iss_wiki.jpg' %}" alt="My image ISS">
+<!--		<img src="iss/images/iss_wiki.jpg" alt="My image ISS">-->
+	</div>
+	<div>
+		<h2>Current distance from the International Space Station.</h2>
+		<p>This page refreshes automatically every 5 seconds.
+		<p>The ISS is flying at speed 7,66 km/s, which is almost equal to the First Space Speed 7,91 km/s.</p>
+		<p>Location of the ISS is taken from the REST API <a href="http://open-notify.org/" target="_blank">"Open Notify".</a>  </p>
+		<h5>Geographic location of the International Space Station :</h5>
+		{% if latitude_iss_sign == 1 %}
+			<p>latitude: &phi;<sub>1</sub> = {{ latitude_iss }}<sup>o</sup>N</p>
+		{% elif latitude_iss_sign == -1 %}
+			<p>latitude: &phi;<sub>1</sub> = {{ latitude_iss}}<sup>o</sup>S</p>
+		{% endif %}
+		{% if longitude_iss_sign == 1 %}
+			<p>longitude: &lambda;<sub>1</sub> = {{ longitude_iss }}<sup>o</sup>E</p>
+		{% elif longitude_iss_sign == -1 %}
+			<p>longitude: &lambda;<sub>1</sub> = {{ longitude_iss }}<sup>o</sup>W</p>
+		{% endif %}
+		<h5>Geographic location of Białystok:</h5>
+		<p>latitude: &phi;<sub>2</sub> = {{ latitude_my }}<sup>o</sup>N</p>
+		<p>longitude: &lambda;<sub>2</sub> = {{ longitude_my }}<sup>o</sup>E</p>
+		<p>Using the formula for the distance of two points on the globe (great circle length):</p>
+		<p>distance = R<sub>Earth</sub> &#8901 arccos[sin(&phi;<sub>1</sub>&pi;/180<sup>o</sup>)sin(&phi;<sub>2</sub>&pi;/180<sup>o</sup>) + cos(&phi;<sub>1</sub>&pi;/180<sup>o</sup>)cos(&phi;<sub>2</sub>&pi;/180<sup>o</sup>)cos&Delta;&lambda;] </p>
+		<h2>Distance from ISS to Białystok is: {{ distance_in_km }} km</h2>
+
+	</div>
+{% endblock %}
