@@ -1,21 +1,28 @@
 from django.shortcuts import render
-import requests
+# import requests
 import json
 import math
 from math import *
+import urllib.request
 
 
 # /
 def iss_home_page_method(request):
+
+    # library requests does not work
     # Make a get request to get the latest position of the international space station from the opennotify api.
-    response = requests.get("http://api.open-notify.org/iss-now.json")
+    # response = requests.get("http://api.open-notify.org/iss-now.json")
     # Print the status code of the response.
-    print(response.status_code)
+    # print(response.status_code)
     # print content
     # print(response.content)
+    # dictionary_iss_position = response.json()
+    # print(dictionary_iss_position)
 
-    dictionary_iss_position = response.json()
-    print(dictionary_iss_position)
+    # from library urllib.request instead of requests
+    req = urllib.request.Request("http://api.open-notify.org/iss-now.json")
+    response = urllib.request.urlopen(req)
+    dictionary_iss_position = json.loads(response.read())
 
     latitude_my = 53.13
     print("latitude_my = " + str(latitude_my))
