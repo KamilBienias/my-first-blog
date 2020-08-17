@@ -19,10 +19,10 @@ def iss_home_page_method(request):
     # dictionary_iss_position = response.json()
     # print(dictionary_iss_position)
 
-    # from library urllib.request instead of requests
+    # from library urllib.request instead of requests library
     req = urllib.request.Request("http://api.open-notify.org/iss-now.json")
     response = urllib.request.urlopen(req)
-    dictionary_iss_position = json.loads(response.read())
+    dictionary_iss_position = json.loads(response.read().decode())
 
     latitude_my = 53.13
     print("latitude_my = " + str(latitude_my))
