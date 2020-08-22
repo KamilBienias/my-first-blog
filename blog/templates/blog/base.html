@@ -21,6 +21,7 @@
             <a href="findword/" id="searching" onmouseover="searching()" onmouseout="searching_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp searching</a><br>
             <a href="todo/" id="todolist" onmouseover="todolist()" onmouseout="todolist_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp ToDoList</a><br>
             <a href="iss/" id="iss" onmouseover="iss()" onmouseout="iss_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp International Space Station</a><br>
+            <a href="ip/" id="ip" onmouseover="ip()" onmouseout="ip_normal()" style="font-size: 18px; text-decoration: none; cursor: pointer">&nbsp&nbsp&nbsp IP calculator</a><br>
             </div>
             <div style="clear:both"></div>
         </div>
@@ -83,6 +84,16 @@
             function iss_normal()
             {
                document.getElementById('iss').innerHTML="&nbsp&nbsp&nbsp International Space Station";
+            }
+
+            function ip()
+            {
+               document.getElementById('ip').innerHTML="__IP calculator__(self)";
+            }
+
+            function ip_normal()
+            {
+               document.getElementById('ip').innerHTML="&nbsp&nbsp&nbsp IP calculator";
             }
     </script>
 </html>
