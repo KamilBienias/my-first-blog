@@ -27,4 +27,5 @@ urlpatterns = [
     # path('todolist/', include('todolist.urls')),  # my todolist
     path('todo/', include('todo.urls')),  # my
     path('iss/', include('iss.urls')),  # my iss
+    path('ip/', include('ipcalculator.urls')),  # my ipcalculator
 ]

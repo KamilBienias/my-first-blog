@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # 'todolist',
     'todo',
     'iss',
+    'ipcalculator'
 ]
 
 MIDDLEWARE = [

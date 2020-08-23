@@ -1,0 +1,25 @@
+{% extends 'ipcalculator/base.html' %}
+
+{% block content %}
+    <a href="/">Back to list of projects</a>
+    <h3>Calculate the network address, broadcast address,<br>
+        first and last host on the network</h3>
+    <h5>For example, if your host address is<br>
+    192.168.1.145 then pass<br>
+    Host's octet 1: 192<br>
+    Host's octet 2: 168<br>
+    Host's octet 3: 1<br>
+    Host's octet 4: 145<br>
+    <br>
+    All possible subnet masks are:<br>
+        255.(0 or 128 or 192 or 224 or 240 or 248 or 252 or 254 or 255).0.0<br>
+        255.255.(0 or 128 or 192 or 224 or 240 or 248 or 252 or 254 or 255).0<br>
+        255.255.255.(0 or 128 or 192 or 224 or 240 or 248 or 252 or 254 or 255)<br>
+    </h5>
+
+    <br>
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }} <!-- metoda, która zapisuje formularz -->
+        <input type="submit" value="Calculate" />
+    </form>
+{% endblock %}

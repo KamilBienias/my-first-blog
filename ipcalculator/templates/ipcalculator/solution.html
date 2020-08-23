@@ -1,0 +1,16 @@
+{% extends 'ipcalculator/base.html' %}
+
+{% block content %}
+    <h2> View results or <a href="/ip">back to passing addresses</a></h2>
+    <br>
+    <div>
+        <h2><font color="green">Your input:</font></h2>
+        <p>Host:<font color="yellow"> {{ added_search.host_octet_1 }}.{{ added_search.host_octet_2 }}.{{ added_search.host_octet_3 }}.{{ added_search.host_octet_4 }}</font><font color="red">/{{ amount_of_1_in_mask }}</font><p/>
+        <p>Subnet mask:<font color="yellow"> {{ added_search.mask_octet_1 }}.{{ added_search.mask_octet_2 }}.{{ added_search.mask_octet_3 }}.{{ added_search.mask_octet_4 }}</font><p/>
+        <h2><font color="green">Output:</font></h2>
+        <p>Network address:<font color="yellow"> {{ network_octet_1 }}.{{ network_octet_2 }}.{{ network_octet_3 }}.{{ network_octet_4 }}</font><p/>
+        <p>Broadcast address:<font color="yellow"> {{ broadcast_octet_1 }}.{{ broadcast_octet_2 }}.{{ broadcast_octet_3 }}.{{ broadcast_octet_4 }}</font><p/>
+        <p>Number of hosts:<font color="yellow"> {{ number_of_hosts }}</font></p>
+    </div>
+
+{% endblock %}
