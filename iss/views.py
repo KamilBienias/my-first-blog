@@ -9,7 +9,7 @@ import urllib.request
 # /
 def iss_home_page_method(request):
 
-    # library requests does not work
+    # library requests does not work, but below it works
     # Make a get request to get the latest position of the international space station from the opennotify api.
     # response = requests.get("http://api.open-notify.org/iss-now.json")
     # Print the status code of the response.
